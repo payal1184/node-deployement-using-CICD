@@ -49,33 +49,29 @@ For both instances:
 
 #### On Node.js Server
 
-```bash
-sudo apt update
-sudo apt install -y git
-sudo apt install -y nodejs npm
-sudo npm install -g pm2
-(Optionally, check versions with node -v, npm -v.)
+![Architecture Diagram](images/img-2.png)
 
 ---
 
 ### Step 3: Push Code to GitHub
 
-On local machine:
+Step 3: Push Code to GitHub
 
-```bash
-git add .
-git commit -m "Initial commit - Node.js CI/CD setup"
-git push -u origin main   #or master
+On local machine, **add**, **commit**, and **push** your changes to GitHub (main or master branch).
+
+
+---
 
 ### Step 4: Configure Jenkins Job
 
 - Install Jenkins plugins: **Git**, **SSH Agent**, **Pipeline**
 - Add SSH credentials for the **Node.js EC2 server**
 - Create job **`node-app-deployment`** (Pipeline/Freestyle)
-- Set **GitHub repo URL** and use the `jenkinsfile` from this repo
+- Set **GitHub repo URL** and use the `Jenkinsfile` from this repo
 
-Pipeline (high level): SSH to Node server → pull latest code → `npm install` → start/restart app with **PM2**.
+Pipeline (high level): SSH to Node server → pull latest code → npm install → start/restart app with PM2
 
+---
 
 ### Step 5: Deployment & Verification
 
@@ -84,6 +80,13 @@ After the Jenkins job runs, it:
 - SSHs into the **Node.js EC2** server  
 - Pulls the latest code and installs dependencies  
 - Starts the app with **PM2**, e.g.:
+
+```bash
+pm2 start app.js --name node-cicd-app
+
+---
+
+
 
 
 
