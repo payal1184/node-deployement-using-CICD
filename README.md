@@ -81,10 +81,22 @@ After the Jenkins job runs, it:
 - Pulls the latest code and installs dependencies  
 - Starts the app with **PM2**, e.g.:
 
-```bash
-pm2 start app.js --name node-cicd-app
 
 ---
+
+### Step 6 (Optional): Configure GitHub Webhook
+
+Go to GitHub repo → Settings → Webhooks → Add webhook.  
+Set Payload URL: http://<JENKINS_EC2_PUBLIC_IP>:8080/github-webhook/  
+Content type: application/json  
+Trigger: Just the push event → Save
+
+Now, any Git push will automatically trigger the Jenkins pipeline.
+
+---
+
+### Final Application Output (Browser)
+![Architecture Diagram](images/Screenshot%20(302).png)
 
 
 
