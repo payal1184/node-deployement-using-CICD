@@ -99,6 +99,18 @@ Now, any Git push will automatically trigger the Jenkins pipeline.
 ![Architecture Diagram](images/Screenshot%20(302).png)
 
 
+## Benefits of This CI/CD Setup
+
+- **Automated Deployment:** Manual SSH, pull, install यांची गरज नाही.
+- **Zero Downtime:** PM2 ensures app stays running even during updates.
+- **Error-Free Builds:** Jenkins validates code before deployment.
+- **Faster Delivery:** Every push automatically updates the live server.
+- **Scalable Setup:** Same pipeline can be used for multiple environments (dev, test, prod).
+- **Secure Deployment:** SSH credentials securely managed by Jenkins.
+
+## Conclusion
+
+This setup ensures **automated, seamless, and consistent deployment** of your Node.js application using a CI/CD pipeline with Jenkins and AWS EC2.
 
 
 
